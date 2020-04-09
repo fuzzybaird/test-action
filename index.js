@@ -5,14 +5,15 @@ const wait = require('./wait');
 // most @actions toolkit packages have async methods
 async function run() {
   try { 
-    const ms = core.getInput('milliseconds');
+    const ms = core.getInput('milliseconds')
     console.log(`Waiting ${ms} milliseconds ...`)
 
     core.debug((new Date()).toTimeString())
     await wait(parseInt(ms));
     core.debug((new Date()).toTimeString())
     core.debug('eli is the best')
-    core.setOutput('time', new Date().toTimeString());
+    core.setOutput('message', 'eli is the best')
+    core.setOutput('time', new Date().toTimeString())
   } 
   catch (error) {
     core.setFailed(error.message);
